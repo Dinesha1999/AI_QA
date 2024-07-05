@@ -1,7 +1,17 @@
+
 How to check activated venvs?
     ---  conda info --envs
     if "*" there it means conda env activated
 
+if an venv isn't the directory, create it using,
+    --- conda create --name venv python=3.10 <--- put here your python version
+
+the activate it using,
+
+    --- conda activate venv
+
 initialized conda
-    --- conda init
-    
+    --- conda init, then restart the terminal and check agin
+
+run requirements.txt
+    --- pip install -r 'requiments.txt'
