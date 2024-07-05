@@ -14,4 +14,4 @@ initialized conda
     --- conda init, then restart the terminal and check agin
 
 run requirements.txt
-    --- pip install -r 'requiments.txt'
+    --- pip install -r 'requirements.txt'
