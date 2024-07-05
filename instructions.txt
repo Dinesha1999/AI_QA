@@ -1,3 +1,7 @@
 How to check activated venvs?
     ---  conda info --envs
     if "*" there it means conda env activated
+
+initialized conda
+    --- conda init
+    
