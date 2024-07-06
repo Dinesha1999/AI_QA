@@ -2,3 +2,4 @@ PyPDF2
 docx
 python-docx
 openai
+langchain
