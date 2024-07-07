@@ -1,5 +1,5 @@
-PyPDF2
-docx
+PyPDF2 #help to read any PDF
+docx   #helpto read any Document
 python-docx
 openai
 langchain
