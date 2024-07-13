@@ -3,3 +3,5 @@ docx   #helpto read any Document
 python-docx
 openai
 langchain
+langchain_community
+langchain_openai
