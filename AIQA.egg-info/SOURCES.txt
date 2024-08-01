@@ -1,0 +1,12 @@
+README.md
+setup.py
+AIQA.egg-info/PKG-INFO
+AIQA.egg-info/SOURCES.txt
+AIQA.egg-info/dependency_links.txt
+AIQA.egg-info/requires.txt
+AIQA.egg-info/top_level.txt
+src/__init__.py
+src/logger.py
+src/utills.py
+src/app/__init__.py
+src/app/app.py

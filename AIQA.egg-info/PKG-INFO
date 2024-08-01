@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: AIQA
+Version: 0.0.1
+Author: Dinesha
+Author-email: dineshaudayangi99@gmail.com
+Requires-Dist: PyPDF2
+Requires-Dist: docx
+Requires-Dist: python-docx
+Requires-Dist: openai
+Requires-Dist: langchain
+Requires-Dist: langchain_community
+Requires-Dist: langchain_openai
+Requires-Dist: streamlit
+Requires-Dist: python-dotenv
