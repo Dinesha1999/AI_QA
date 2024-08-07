@@ -11,7 +11,7 @@ def main():
     """  
     st.markdown(html_temp, unsafe_allow_html=True) 
     data='data.pdf'
-    #st.write(data)
+    #st.write(dataaaaa)
     text_data=extract(data)
     chunks=convert_chunks(text_data)
     vector_db=text_embedding(chunks)
