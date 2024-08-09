@@ -1,3 +1,4 @@
+#Installing required packages
 PyPDF2 #help to read any PDF
 docx   #helpto read any Document
 python-docx
