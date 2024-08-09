@@ -10,3 +10,4 @@ Requires-Dist: openai
 Requires-Dist: langchain
 Requires-Dist: langchain_community
 Requires-Dist: langchain_openai
+Requires-Dist: streamlit
