@@ -1,5 +1,5 @@
 import streamlit as st  
-
+from bs4 import BeautifulSoup
 from src.utills import extract_text_pdf,extract_text_docx,extract,convert_chunks, text_embedding, generate_answer
 
 
@@ -12,7 +12,12 @@ def main():
     st.markdown(html_temp, unsafe_allow_html=True) 
     data='data.pdf'
     #st.write(dataaaaa)
-    text_data=extract(data)
+    with open('data_html.html','r') as file:
+        html_content=file.read()
+    soup=BeautifulSoup(html_content,'html.parser')
+    soup_str= str(soup)
+    text_data=soup_str
+    #text_data=extract(data)
     chunks=convert_chunks(text_data)
     vector_db=text_embedding(chunks)
     #st.write(vector_db)
