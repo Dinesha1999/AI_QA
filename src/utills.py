@@ -77,3 +77,7 @@ def generate_answer(vector_db,query):
     response= chain.run(input_documents=docs,question=query)
 
     return response
+
+
+def soup(data): # to extract html data
+    pass
