@@ -46,7 +46,7 @@ def extract(doc):
 def convert_chunks(text_data):
     text_splitter=CharacterTextSplitter(
     separator="\n",
-    chunk_size=1300,
+    chunk_size=1500,
     chunk_overlap=300,
     length_function=len,
     )
@@ -72,7 +72,9 @@ def text_embedding(chunks):
 def generate_answer(vector_db,query):
     embedding_vector = embedding.embed_query(query)
     docs = vector_db.similarity_search_by_vector(embedding_vector)
-
+    print(docs[0])
+    print(docs[1])
+ 
     chain=load_qa_chain(llm=llm,chain_type='stuff')
     response= chain.run(input_documents=docs,question=query)
 
