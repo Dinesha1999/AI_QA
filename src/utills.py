@@ -12,6 +12,7 @@ load_dotenv(find_dotenv())
 api_key=os.environ.get("OPEN_API_KEY")
 embedding=OpenAIEmbeddings(openai_api_key=api_key)
 llm = OpenAI(api_key=api_key)
+#llm = OpenAI(api_key=api_key, max_tokens=512)
 # extract text from PDF document
 def extract_text_pdf(pdf):
     text = ""
@@ -46,7 +47,7 @@ def extract(doc):
 def convert_chunks(text_data):
     text_splitter=CharacterTextSplitter(
     separator="\n",
-    chunk_size=1500,
+    chunk_size=3400,
     chunk_overlap=300,
     length_function=len,
     )
@@ -71,14 +72,30 @@ def text_embedding(chunks):
 
 def generate_answer(vector_db,query):
     embedding_vector = embedding.embed_query(query)
-    docs = vector_db.similarity_search_by_vector(embedding_vector)
-    print(docs[0])
- 
+    docs = vector_db.similarity_search_by_vector(embedding_vector,k=5)
+    # print(docs[0])
+    # print("----------------------------------------------")
+    # print(docs[1])
+    # print("----------------------------------------------")
+    # print(docs[2])
+   
+    
     chain=load_qa_chain(llm=llm,chain_type='stuff')
-    response= chain.run(input_documents=docs,question=query)
-
-    return response
-
+    response1= chain.run(input_documents=[docs[0]],question=query)
+    response2= chain.run(input_documents=[docs[1]],question=query)
+    response3= chain.run(input_documents=[docs[2]],question=query)
+    
+    template="""
+    Given the following three answers to the question "{question}":
+    1. {response1}
+    2. {response2}
+    3. {response3}
+    Analyze the responses and combine relevant details from the valid answers to provide a clear, concise response without unnecessary information.
+    """
+    prompt=template.format(question=query,response1=response1,response2=response2,response3=response3)
+    final_answer=chain.run(input_documents=[],question=prompt)
+    #return response1+'\n\n'+response2+'\n\n'+response3+'\n\n'+final_answer
+    return final_answer
 
 def soup(data): # to extract html data
     pass
