@@ -28,6 +28,5 @@ def main():
             st.write(answer)
         else:
             st.write("Please Enter a Valid Question")
-    #query = "who are the lecturers in computer science department with their designation and their qualifications"
 if __name__ == '__main__':  
     main()

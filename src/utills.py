@@ -73,7 +73,6 @@ def generate_answer(vector_db,query):
     embedding_vector = embedding.embed_query(query)
     docs = vector_db.similarity_search_by_vector(embedding_vector)
     print(docs[0])
-    print(docs[1])
  
     chain=load_qa_chain(llm=llm,chain_type='stuff')
     response= chain.run(input_documents=docs,question=query)
