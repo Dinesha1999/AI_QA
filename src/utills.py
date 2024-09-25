@@ -94,8 +94,8 @@ def generate_answer(vector_db,query):
     """
     prompt=template.format(question=query,response1=response1,response2=response2,response3=response3)
     final_answer=chain.run(input_documents=[],question=prompt)
-    #return response1+'\n\n'+response2+'\n\n'+response3+'\n\n'+final_answer
-    return final_answer
+    return response1+'\n\n'+response2+'\n\n'+response3+'\n\n'+final_answer
+    #return final_answer
 
 def soup(data): # to extract html data
     pass
